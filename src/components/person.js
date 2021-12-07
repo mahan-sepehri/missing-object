@@ -1,8 +1,12 @@
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
 import { ReactComponent as SvgImage } from "../assets/person.svg";
+import ShowResultContext from "../context/showResult";
+
 import "./person.css";
 
 const Person = (props) => {
+  const { setShowResult } = useContext(ShowResultContext);
+
   useEffect(() => {
     const person = document.getElementById(`${props.personId}`);
     // console.log(person);
@@ -17,7 +21,7 @@ const Person = (props) => {
 
   const checkWinner = () => {
     if (props.objectNum === props.winnerNumber) {
-      console.log("yaaaaay");
+      setShowResult(true);
     } else {
       console.log("not this one");
     }

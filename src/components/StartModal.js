@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import ShowResultContext from "../context/showResult";
+import React from "react";
+
 import "./ResultModal.css";
 
 const StartModal = (props) => {

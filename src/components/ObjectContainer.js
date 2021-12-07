@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Person from "./person";
 import Winner from "./Winner";
 import "./ObjectContainer.css";
@@ -6,9 +6,10 @@ import "./ObjectContainer.css";
 const MISSING_OBJECT_NUMBER = 10;
 
 const ObjectContainer = () => {
-  const [missingObjectNumber, setMissingObjectNumber] = useState(
-    MISSING_OBJECT_NUMBER
-  );
+  // const [missingObjectNumber, setMissingObjectNumber] = useState(
+  //   MISSING_OBJECT_NUMBER
+  // );
+  const missingObjectNumber = MISSING_OBJECT_NUMBER;
 
   const missingObjectArr = [];
   const winnerNumber = Math.floor(Math.random() * missingObjectNumber);

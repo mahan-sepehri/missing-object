@@ -14,7 +14,7 @@ const InputSlider = () => {
         id="difficulty"
         name="difficulty"
         min="10"
-        max="50"
+        max="500"
         value={difficulty}
         step="1"
         onChange={difficultyChangeHandler}

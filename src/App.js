@@ -9,10 +9,12 @@ import StartModal from "./components/StartModal";
 const App = () => {
   const { showResult } = useContext(ShowResultContext);
   const [gameIsStarted, setGameIsStarted] = useState(false);
+
   return (
     <>
       {!gameIsStarted && <StartModal setGameIsStarted={setGameIsStarted} />}
       {showResult && <ResultModal />}
+
       {gameIsStarted && !showResult ? <ObjectContainer /> : null}
     </>
   );

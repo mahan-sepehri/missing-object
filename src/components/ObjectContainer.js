@@ -15,8 +15,10 @@ const ObjectContainer = () => {
     return randomPosition;
   };
 
-  const randomizeColor = () => {
-    return Math.floor(Math.random() * 16777215).toString(16);
+  const randomRgbColor = () => {
+    const randomC = () => Math.floor(Math.random() * 256);
+    const randomRgb = `rgb(${randomC()}, ${randomC()}, ${randomC()})`;
+    return randomRgb;
   };
 
   for (let i = 0; i < missingObjectNumber; i++) {
@@ -29,8 +31,8 @@ const ObjectContainer = () => {
           top: `${randomize()}%`,
           left: `${randomize()}%`,
         }}
-        pantsColor={randomizeColor()}
-        shirtColor={randomizeColor()}
+        pantsColor={randomRgbColor()}
+        shirtColor={randomRgbColor()}
         personId={`person${i}`}
       />
     );

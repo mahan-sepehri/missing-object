@@ -1,23 +1,11 @@
-import { useEffect, useContext } from "react";
-import { ReactComponent as SvgImage } from "../assets/person.svg";
+import { useContext } from "react";
+import SvgImg from "./svgImg";
 import ShowResultContext from "../context/showResult";
 
 import "./person.css";
 
 const Person = (props) => {
   const { setShowResult } = useContext(ShowResultContext);
-
-  useEffect(() => {
-    const person = document.getElementById(`${props.personId}`);
-    // console.log(person);
-    const pants = person.querySelectorAll(".cls-9");
-    // console.log(pants);
-    const shirt = person.querySelectorAll(".cls-10");
-    shirt.forEach((path) => (path.style.fill = `#${props.shirtColor}`));
-
-    // console.log(props.pantsColor);
-    pants.forEach((path) => (path.style.fill = `#${props.pantsColor}`));
-  }, [props.pantsColor, props.shirtColor, props.personId]);
 
   const checkWinner = () => {
     if (props.objectNum === props.winnerNumber) {
@@ -28,12 +16,14 @@ const Person = (props) => {
   };
 
   return (
-    <SvgImage
-      className="svg-image"
-      style={props.style}
-      id={props.personId}
-      onClick={checkWinner}
-    />
+    <div className="svg-image" style={props.style} onClick={checkWinner}>
+      <SvgImg
+        id={props.personId}
+        personClassPants={`person${props.personId}-pants`}
+        personClassShirt={`person${props.personId}-shirt`}
+        fillColors={`.cls-1{fill:#e6d0c1;}.cls-2{fill:#eacbb7;}.cls-3{fill:#417183;}.cls-4{fill:#e9c741;}.cls-5{fill:#f1f1f1;}.cls-6{fill:#303030;}.cls-7{fill:#7a6356;}.cls-8{fill:#4c4c4c;}.person${props.personId}-pants{fill:${props.pantsColor};}.person${props.personId}-shirt{fill:${props.shirtColor};}`}
+      />
+    </div>
   );
 };
 

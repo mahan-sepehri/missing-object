@@ -13,17 +13,9 @@ const StartModal = (props) => {
           <p style={{ marginBottom: "20px", textAlign: "center" }}>
             Choose Difficulty
           </p>
-          <InputSlider />
+          <InputSlider setGameIsStarted={props.setGameIsStarted} />
         </div>
-        <button
-          className="play-again-button"
-          onClick={() => {
-            // setIsLoading(false);
-            props.setGameIsStarted(true);
-          }}
-        >
-          Start
-        </button>
+
         {/* {isLoading && <p>Loading...</p>} */}
       </div>
     </div>

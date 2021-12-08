@@ -1,3 +1,10 @@
+.missing-box {
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+}
+
 .winner-container {
   position: relative;
   width: 20vw;
@@ -12,9 +19,17 @@
 
 .missing-container {
   width: 100vw;
-  height: 58.5vw;
+  max-width: 700px;
+  height: 170vw;
+  max-height: 1190px;
   position: relative;
   background-image: url("../assets/soccer-field.svg");
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+@media (max-width: 700px) {
+  .winner-container {
+    width: 50vw;
+  }
 }

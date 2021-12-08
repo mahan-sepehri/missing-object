@@ -31,3 +31,9 @@
   border: 1px solid black;
   cursor: pointer;
 }
+
+@media (max-width: 720px) {
+  .result-modal {
+    width: 90vw;
+  }
+}

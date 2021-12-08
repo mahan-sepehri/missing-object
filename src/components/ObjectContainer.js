@@ -41,7 +41,9 @@ const ObjectContainer = () => {
 
   return (
     <>
-      <div className="missing-container">{missingObjectArr}</div>
+      <div className="missing-box">
+        <div className="missing-container">{missingObjectArr}</div>
+      </div>
       <div className="winner-container">
         <h2>Find This:</h2>
         <Winner pantsColor={winnerPantsColor} shirtColor={winnerShirtColor} />

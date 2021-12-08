@@ -1,20 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import Person from "./person";
 import Winner from "./Winner";
+import DifficultyContext from "../context/difficultyContext";
 import "./ObjectContainer.css";
 
-const MISSING_OBJECT_NUMBER = 10;
-
 const ObjectContainer = () => {
-  // const [missingObjectNumber, setMissingObjectNumber] = useState(
-  //   MISSING_OBJECT_NUMBER
-  // );
-  const missingObjectNumber = MISSING_OBJECT_NUMBER;
+  const { difficulty } = useContext(DifficultyContext);
+  const missingObjectNumber = difficulty;
 
   const missingObjectArr = [];
   const winnerNumber = Math.floor(Math.random() * missingObjectNumber);
   const randomize = () => {
-    const randomPosition = Math.random() * 90 + 5;
+    const randomPosition = Math.random() * 80 + 10;
     return randomPosition;
   };
 
@@ -44,11 +41,11 @@ const ObjectContainer = () => {
 
   return (
     <>
+      <div className="missing-container">{missingObjectArr}</div>
       <div className="winner-container">
         <h2>Find This:</h2>
         <Winner pantsColor={winnerPantsColor} shirtColor={winnerShirtColor} />
       </div>
-      <div className="missing-container">{missingObjectArr}</div>
     </>
   );
 };

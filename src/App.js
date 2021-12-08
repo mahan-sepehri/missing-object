@@ -13,7 +13,7 @@ const App = () => {
     <>
       {!gameIsStarted && <StartModal setGameIsStarted={setGameIsStarted} />}
       {showResult && <ResultModal />}
-      <ObjectContainer />
+      {gameIsStarted && !showResult ? <ObjectContainer /> : null}
     </>
   );
 };

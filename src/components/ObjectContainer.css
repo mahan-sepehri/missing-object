@@ -12,6 +12,9 @@
 
 .missing-container {
   width: 100vw;
-  height: 70vh;
+  height: 58.5vw;
   position: relative;
+  background-image: url("../assets/soccer-field.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
 }

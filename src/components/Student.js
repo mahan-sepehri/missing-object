@@ -1,10 +1,10 @@
 import { useContext } from "react";
-import SoccerPlayer from "./SoccerPlayer";
+import StudentSVG from "./StudentSVG";
 import ShowResultContext from "../context/showResult";
 
 import "./person.css";
 
-const Person = (props) => {
+const Student = (props) => {
   const { setShowResult } = useContext(ShowResultContext);
 
   const checkWinner = () => {
@@ -17,14 +17,14 @@ const Person = (props) => {
 
   return (
     <div className="svg-image" style={props.style} onClick={checkWinner}>
-      <SoccerPlayer
+      <StudentSVG
         id={props.personId}
         personClassPants={`person${props.personId}-pants`}
         personClassShirt={`person${props.personId}-shirt`}
-        fillColors={`.cls-1{fill:#e6d0c1;}.cls-2{fill:#eacbb7;}.cls-3{fill:#417183;}.cls-4{fill:#e9c741;}.cls-5{fill:#f1f1f1;}.cls-6{fill:#303030;}.cls-7{fill:#7a6356;}.cls-8{fill:#4c4c4c;}.person${props.personId}-pants{fill:${props.pantsColor};}.person${props.personId}-shirt{fill:${props.shirtColor};}`}
+        fillColors={`.cls-1{fill:#e8dbce;}.person${props.personId}-pants{fill:${props.pantsColor};}.person${props.personId}-shirt{fill:${props.shirtColor};}.cls-4{fill:#736357;}.cls-5{fill:#f0e5d4;}.cls-6{fill:#333;}.cls-7{fill:#f0f0f0;}`}
       />
     </div>
   );
 };
 
-export default Person;
+export default Student;

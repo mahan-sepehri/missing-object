@@ -1,13 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import Person from "./person";
-import Winner from "./Winner";
+import Student from "./Student";
 import DifficultyContext from "../context/difficultyContext";
-import StartModal from "./StartModal";
 import "./ObjectContainer.css";
 
 const ObjectContainer = () => {
   const { difficulty } = useContext(DifficultyContext);
-  const [gameIsStarted, setGameIsStarted] = useState(false);
 
   const missingObjectArr = [];
   const winnerNumber = Math.floor(Math.random() * difficulty);
@@ -22,9 +20,9 @@ const ObjectContainer = () => {
     return randomRgb;
   };
 
-  const createMissingArr = () => {
-    for (let i = 0; i < difficulty; i++) {
-      missingObjectArr.push(
+  const characterArr = [
+    (i) => {
+      return (
         <Person
           key={i}
           objectNum={i}
@@ -38,31 +36,48 @@ const ObjectContainer = () => {
           personId={`person${i}`}
         />
       );
+    },
+    (i) => {
+      return (
+        <Student
+          key={i}
+          objectNum={i}
+          winnerNumber={winnerNumber}
+          style={{
+            top: `${randomize()}%`,
+            left: `${randomize()}%`,
+          }}
+          pantsColor={randomRgbColor()}
+          shirtColor={randomRgbColor()}
+          personId={`person${i}`}
+        />
+      );
+    },
+  ];
+
+  const createMissingArr = () => {
+    for (let i = 0; i < difficulty; i++) {
+      const randomIndex = Math.floor(Math.random() * 2);
+      console.log(randomIndex);
+      missingObjectArr.push(characterArr[randomIndex](i));
     }
   };
   createMissingArr();
 
-  const winnerPantsColor = missingObjectArr[winnerNumber].props.pantsColor;
-  const winnerShirtColor = missingObjectArr[winnerNumber].props.shirtColor;
+  const winner = missingObjectArr[winnerNumber];
+  console.log(winner);
 
   return (
     <>
-      {!gameIsStarted ? (
-        <StartModal setGameIsStarted={setGameIsStarted} />
-      ) : (
-        <>
-          <div className="missing-box">
-            <div className="missing-container">{missingObjectArr}</div>
-          </div>
-          <div className="winner-container">
-            <h2>Find This:</h2>
-            <Winner
-              pantsColor={winnerPantsColor}
-              shirtColor={winnerShirtColor}
-            />
-          </div>
-        </>
-      )}
+      <>
+        <div className="missing-box">
+          <div className="missing-container">{missingObjectArr}</div>
+        </div>
+        <div className="winner-container">
+          <h2>Find This:</h2>
+          {winner}
+        </div>
+      </>
     </>
   );
 };

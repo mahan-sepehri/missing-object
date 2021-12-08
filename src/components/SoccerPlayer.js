@@ -1,6 +1,6 @@
 import React from "react";
 
-const SvgImg = (props) => {
+const SoccerPlayer = (props) => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 407.58 1164.26">
       <defs>
@@ -137,4 +137,4 @@ const SvgImg = (props) => {
   );
 };
 
-export default SvgImg;
+export default SoccerPlayer;

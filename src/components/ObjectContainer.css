@@ -17,6 +17,15 @@
   border-radius: 7px;
 }
 
+.winner-container .svg-image {
+  position: relative;
+  left: unset !important;
+  top: unset !important;
+  margin: 10px auto;
+  pointer-events: none;
+  width: 20px;
+}
+
 .missing-container {
   width: 100vw;
   max-width: 700px;

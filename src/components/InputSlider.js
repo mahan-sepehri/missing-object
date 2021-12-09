@@ -22,7 +22,7 @@ const InputSlider = (props) => {
           id="difficulty"
           name="difficulty"
           min="10"
-          max="500"
+          max="200"
           step="1"
           value={difficultySliderValue}
           onChange={(e) => {

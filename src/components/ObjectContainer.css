@@ -14,8 +14,8 @@
 }
 
 .bottom-box {
-  width: 90%;
-  max-width: 606px;
+  width: 100%;
+  max-width: 700px;
   display: flex;
   gap: 20px;
   justify-content: center;
@@ -50,14 +50,14 @@
   top: unset !important;
   margin: 10px auto;
   pointer-events: none;
-  width: 20px;
+  width: 50px;
 }
 
 .missing-container {
   width: 100vw;
-  max-width: 700px;
+  max-width: 400px;
   height: 170vw;
-  max-height: 1190px;
+  max-height: 680px;
   position: relative;
   background-image: url("../assets/soccer-field.svg");
   background-size: contain;

@@ -1,14 +1,22 @@
 import React, { useContext, useMemo, useState, useEffect } from "react";
-import Person from "./person";
-import Student from "./Student";
-import MobileMan from "./MobileMan";
-import BusinessWoman from "./BusinessWoman";
-import WalkingGuy from "./WalkingGuy";
+
 import DifficultyContext from "../context/difficultyContext";
 import LivesContext from "../context/livesContext";
-import "./ObjectContainer.css";
+
+// import Person from "./person";
+// import Student from "./Student";
+// import MobileMan from "./MobileMan";
+// import BusinessWoman from "./BusinessWoman";
+// import WalkingGuy from "./WalkingGuy";
+import Kenny from "./Kenny";
+import Cartman from "./Cartman";
+import Stan from "./Stan";
+import Kyle from "./Kyle";
+
 import Spinner from "./Spinner";
 import ShowResultContext from "../context/showResult";
+
+import "./ObjectContainer.css";
 
 const ObjectContainer = () => {
   const { difficulty } = useContext(DifficultyContext);
@@ -42,9 +50,89 @@ const ObjectContainer = () => {
   useEffect(() => {
     let missingObjectArr = [];
     const characterArr = [
+      // function (i) {
+      //   return (
+      //     <Person
+      //       key={i}
+      //       objectNum={i}
+      //       winnerNumber={winnerNumber}
+      //       style={{
+      //         top: `${randomize()}%`,
+      //         left: `${randomize()}%`,
+      //       }}
+      //       pantsColor={randomRgbColor()}
+      //       shirtColor={randomRgbColor()}
+      //       personId={`person${i}`}
+      //     />
+      //   );
+      // },
+      // function (i) {
+      //   return (
+      //     <Student
+      //       key={i}
+      //       objectNum={i}
+      //       winnerNumber={winnerNumber}
+      //       style={{
+      //         top: `${randomize()}%`,
+      //         left: `${randomize()}%`,
+      //       }}
+      //       pantsColor={randomRgbColor()}
+      //       shirtColor={randomRgbColor()}
+      //       personId={`person${i}`}
+      //     />
+      //   );
+      // },
+      // function (i) {
+      //   return (
+      //     <MobileMan
+      //       key={i}
+      //       objectNum={i}
+      //       winnerNumber={winnerNumber}
+      //       style={{
+      //         top: `${randomize()}%`,
+      //         left: `${randomize()}%`,
+      //       }}
+      //       pantsColor={randomRgbColor()}
+      //       shirtColor={randomRgbColor()}
+      //       personId={`person${i}`}
+      //     />
+      //   );
+      // },
+      // function (i) {
+      //   return (
+      //     <BusinessWoman
+      //       key={i}
+      //       objectNum={i}
+      //       winnerNumber={winnerNumber}
+      //       style={{
+      //         top: `${randomize()}%`,
+      //         left: `${randomize()}%`,
+      //       }}
+      //       pantsColor={randomRgbColor()}
+      //       shirtColor={randomRgbColor()}
+      //       personId={`person${i}`}
+      //     />
+      //   );
+      // },
+      // function (i) {
+      //   return (
+      //     <WalkingGuy
+      //       key={i}
+      //       objectNum={i}
+      //       winnerNumber={winnerNumber}
+      //       style={{
+      //         top: `${randomize()}%`,
+      //         left: `${randomize()}%`,
+      //       }}
+      //       pantsColor={randomRgbColor()}
+      //       shirtColor={randomRgbColor()}
+      //       personId={`person${i}`}
+      //     />
+      //   );
+      // },
       function (i) {
         return (
-          <Person
+          <Kenny
             key={i}
             objectNum={i}
             winnerNumber={winnerNumber}
@@ -60,7 +148,7 @@ const ObjectContainer = () => {
       },
       function (i) {
         return (
-          <Student
+          <Cartman
             key={i}
             objectNum={i}
             winnerNumber={winnerNumber}
@@ -76,7 +164,7 @@ const ObjectContainer = () => {
       },
       function (i) {
         return (
-          <MobileMan
+          <Stan
             key={i}
             objectNum={i}
             winnerNumber={winnerNumber}
@@ -92,23 +180,7 @@ const ObjectContainer = () => {
       },
       function (i) {
         return (
-          <BusinessWoman
-            key={i}
-            objectNum={i}
-            winnerNumber={winnerNumber}
-            style={{
-              top: `${randomize()}%`,
-              left: `${randomize()}%`,
-            }}
-            pantsColor={randomRgbColor()}
-            shirtColor={randomRgbColor()}
-            personId={`person${i}`}
-          />
-        );
-      },
-      function (i) {
-        return (
-          <WalkingGuy
+          <Kyle
             key={i}
             objectNum={i}
             winnerNumber={winnerNumber}
@@ -137,29 +209,27 @@ const ObjectContainer = () => {
 
   return (
     <>
-      <>
-        <div className="missing-box">
-          {missingObjArr.length === 0 ? (
-            <div className="spinner-container">
-              <h1>Loading...</h1>
-              <Spinner />
-            </div>
-          ) : (
-            <div className="missing-container">{missingObjArr}</div>
-          )}
-        </div>
-        {missingObjArr.length !== 0 ? (
-          <div className="bottom-box">
-            <div className="lives-container">
-              <span style={{ fontSize: "40px" }}>♥️ &times; {lives}</span>
-            </div>
-            <div className="winner-container">
-              <h2>Find This:</h2>
-              {winner}
-            </div>
+      {missingObjArr.length !== 0 ? (
+        <div className="bottom-box">
+          <div className="lives-container">
+            <span style={{ fontSize: "40px" }}>♥️ &times; {lives}</span>
           </div>
-        ) : null}
-      </>
+          <div className="winner-container">
+            <h2>Find This:</h2>
+            {winner}
+          </div>
+        </div>
+      ) : null}
+      <div className="missing-box">
+        {missingObjArr.length === 0 ? (
+          <div className="spinner-container">
+            <h1>Loading...</h1>
+            <Spinner />
+          </div>
+        ) : (
+          <div className="missing-container">{missingObjArr}</div>
+        )}
+      </div>
     </>
   );
 };

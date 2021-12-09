@@ -1,10 +1,9 @@
-import React, { useContext, useMemo, useState } from "react";
+import React, { useContext, useMemo, useState, useEffect } from "react";
 import Person from "./person";
 import Student from "./Student";
 import DifficultyContext from "../context/difficultyContext";
 import LivesContext from "../context/livesContext";
 import "./ObjectContainer.css";
-import { useEffect } from "react/cjs/react.development";
 import Spinner from "./Spinner";
 import ShowResultContext from "../context/showResult";
 

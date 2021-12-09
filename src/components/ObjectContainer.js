@@ -5,6 +5,7 @@ import DifficultyContext from "../context/difficultyContext";
 import LivesContext from "../context/livesContext";
 import "./ObjectContainer.css";
 import { useEffect } from "react/cjs/react.development";
+import Spinner from "./Spinner";
 import ShowResultContext from "../context/showResult";
 
 const ObjectContainer = () => {
@@ -28,8 +29,17 @@ const ObjectContainer = () => {
     return randomRgb;
   };
 
-  const characterArr = useMemo(
-    () => [
+  useEffect(() => {
+    if (lives === 0) {
+      console.log("you lost");
+      setHasLost(true);
+      setShowResult(true);
+    }
+  }, [lives, setHasLost, setShowResult]);
+
+  useEffect(() => {
+    let missingObjectArr = [];
+    const characterArr = [
       (i) => {
         return (
           <Person
@@ -62,19 +72,7 @@ const ObjectContainer = () => {
           />
         );
       },
-    ],
-    [winnerNumber]
-  );
-  useEffect(() => {
-    if (lives === 0) {
-      console.log("you lost");
-      setHasLost(true);
-      setShowResult(true);
-    }
-  }, [lives, setHasLost, setShowResult]);
-
-  useEffect(() => {
-    let missingObjectArr = [];
+    ];
     const createMissingArr = (difficulty) => {
       for (let i = 0; i < difficulty; i++) {
         const randomIndex = Math.floor(Math.random() * 2);
@@ -83,7 +81,7 @@ const ObjectContainer = () => {
     };
     createMissingArr(difficulty);
     setMissingObjArr(missingObjectArr);
-  }, [difficulty, characterArr]);
+  }, [difficulty, winnerNumber]);
 
   const winner = missingObjArr[winnerNumber];
 
@@ -91,17 +89,26 @@ const ObjectContainer = () => {
     <>
       <>
         <div className="missing-box">
-          <div className="missing-container">{missingObjArr}</div>
+          {missingObjArr.length === 0 ? (
+            <div className="spinner-container">
+              <h1>Loading...</h1>
+              <Spinner />
+            </div>
+          ) : (
+            <div className="missing-container">{missingObjArr}</div>
+          )}
         </div>
-        <div className="bottom-box">
-          <div className="lives-container">
-            <span style={{ fontSize: "40px" }}>♥️ &times; {lives}</span>
+        {missingObjArr.length !== 0 ? (
+          <div className="bottom-box">
+            <div className="lives-container">
+              <span style={{ fontSize: "40px" }}>♥️ &times; {lives}</span>
+            </div>
+            <div className="winner-container">
+              <h2>Find This:</h2>
+              {winner}
+            </div>
           </div>
-          <div className="winner-container">
-            <h2>Find This:</h2>
-            {winner}
-          </div>
-        </div>
+        ) : null}
       </>
     </>
   );

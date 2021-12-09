@@ -5,6 +5,14 @@
   align-items: center;
 }
 
+.spinner-container {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
 .bottom-box {
   width: 90%;
   max-width: 606px;

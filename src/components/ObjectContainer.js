@@ -40,7 +40,7 @@ const ObjectContainer = () => {
   useEffect(() => {
     let missingObjectArr = [];
     const characterArr = [
-      (i) => {
+      function (i) {
         return (
           <Person
             key={i}
@@ -56,7 +56,7 @@ const ObjectContainer = () => {
           />
         );
       },
-      (i) => {
+      function (i) {
         return (
           <Student
             key={i}
@@ -73,6 +73,40 @@ const ObjectContainer = () => {
         );
       },
     ];
+    // const characterArr = [
+    //   (i) => {
+    //     return (
+    //       <Person
+    //         key={i}
+    //         objectNum={i}
+    //         winnerNumber={winnerNumber}
+    //         style={{
+    //           top: `${randomize()}%`,
+    //           left: `${randomize()}%`,
+    //         }}
+    //         pantsColor={randomRgbColor()}
+    //         shirtColor={randomRgbColor()}
+    //         personId={`person${i}`}
+    //       />
+    //     );
+    //   },
+    //   (i) => {
+    //     return (
+    //       <Student
+    //         key={i}
+    //         objectNum={i}
+    //         winnerNumber={winnerNumber}
+    //         style={{
+    //           top: `${randomize()}%`,
+    //           left: `${randomize()}%`,
+    //         }}
+    //         pantsColor={randomRgbColor()}
+    //         shirtColor={randomRgbColor()}
+    //         personId={`person${i}`}
+    //       />
+    //     );
+    //   },
+    // ];
     const createMissingArr = (difficulty) => {
       for (let i = 0; i < difficulty; i++) {
         const randomIndex = Math.floor(Math.random() * 2);

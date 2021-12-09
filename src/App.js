@@ -7,7 +7,7 @@ import ResultModal from "./components/ResultModal";
 import StartModal from "./components/StartModal";
 
 const App = () => {
-  const { showResult } = useContext(ShowResultContext);
+  const { showResult, hasLost } = useContext(ShowResultContext);
   const [gameIsStarted, setGameIsStarted] = useState(false);
 
   return (
@@ -15,7 +15,8 @@ const App = () => {
       {!gameIsStarted ? (
         <StartModal setGameIsStarted={setGameIsStarted} />
       ) : null}
-      {showResult && <ResultModal />}
+      {showResult && hasLost && <ResultModal msg="You Lost" />}
+      {showResult && !hasLost && <ResultModal msg="You Won" />}
 
       {gameIsStarted && !showResult ? <ObjectContainer /> : null}
     </>

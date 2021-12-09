@@ -1,17 +1,19 @@
 import { useContext } from "react";
 import StudentSVG from "./StudentSVG";
 import ShowResultContext from "../context/showResult";
+import LivesContext from "../context/livesContext";
 
 import "./person.css";
 
 const Student = (props) => {
   const { setShowResult } = useContext(ShowResultContext);
+  const { lives, setLives } = useContext(LivesContext);
 
   const checkWinner = () => {
     if (props.objectNum === props.winnerNumber) {
       setShowResult(true);
     } else {
-      console.log("not this one");
+      setLives(lives - 1);
     }
   };
 

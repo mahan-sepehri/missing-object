@@ -1,11 +1,11 @@
 import { useContext } from "react";
-import SoccerPlayer from "./characterSvgCodes/SoccerPlayer";
+import MobileManSvg from "./characterSvgCodes/MobileManSvg";
 import ShowResultContext from "../context/showResult";
 import LivesContext from "../context/livesContext";
 
 import "./person.css";
 
-const Person = (props) => {
+const MobileMan = (props) => {
   const { setShowResult } = useContext(ShowResultContext);
   const { lives, setLives } = useContext(LivesContext);
 
@@ -13,25 +13,24 @@ const Person = (props) => {
     if (props.objectNum === props.winnerNumber) {
       setShowResult(true);
     } else {
-      console.log("not this one");
       setLives(lives - 1);
     }
   };
 
   return (
     <div
-      className="svg-image soccer-player"
+      className="svg-image mobile-man"
       style={props.style}
       onClick={checkWinner}
     >
-      <SoccerPlayer
+      <MobileManSvg
         id={props.personId}
         personClassPants={`person${props.personId}-pants`}
         personClassShirt={`person${props.personId}-shirt`}
-        fillColors={`.person${props.personId}-pants{fill:${props.pantsColor};}.person${props.personId}-shirt{fill:${props.shirtColor};}`}
+        fillColors={`.cls-1{fill:#f2e7d6;}.cls-2{fill:#666;}.person${props.personId}-pants{fill:${props.pantsColor};}.person${props.personId}-shirt{fill:${props.shirtColor};}.cls-5{fill:#edd5be;}.cls-6{fill:#1d1e1e;}`}
       />
     </div>
   );
 };
 
-export default Person;
+export default MobileMan;

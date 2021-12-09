@@ -3,3 +3,99 @@
   position: absolute;
   cursor: pointer;
 }
+
+.soccer-player .cls-1 {
+  fill: #e6d0c1;
+}
+.soccer-player .cls-2 {
+  fill: #eacbb7;
+}
+.soccer-player .cls-3 {
+  fill: #417183;
+}
+.soccer-player .cls-4 {
+  fill: #e9c741;
+}
+.soccer-player .cls-5 {
+  fill: #f1f1f1;
+}
+.soccer-player .cls-6 {
+  fill: #303030;
+}
+.soccer-player .cls-7 {
+  fill: #7a6356;
+}
+.soccer-player .cls-8 {
+  fill: #4c4c4c;
+}
+
+.student .cls-1 {
+  fill: #e8dbce;
+}
+.student .cls-4 {
+  fill: #736357;
+}
+.student .cls-5 {
+  fill: #f0e5d4;
+}
+.student .cls-6 {
+  fill: #333;
+}
+.student .cls-7 {
+  fill: #f0f0f0;
+}
+
+.svg-image.mobile-man {
+  width: 12px;
+}
+
+.svg-image.business-woman {
+  width: 20px;
+}
+
+.business-woman .cls-6 {
+  fill: #e2cfc5;
+}
+
+.business-woman .cls-2 {
+  fill: #f2d6c9;
+}
+.business-woman .cls-4 {
+  fill: #333;
+}
+.business-woman .cls-5 {
+  fill: #fff;
+}
+.business-woman .cls-7 {
+  fill: #f2f2f2;
+}
+.business-woman .cls-8 {
+  fill: #441a19;
+}
+
+.walking-guy .cls-7 {
+  fill: #f9e9de;
+}
+
+.walking-guy {
+  width: 13px;
+}
+
+.cls-1 {
+  fill: #262626;
+}
+.cls-2 {
+  fill: #bfbfbf;
+}
+.cls-3 {
+  fill: #fff;
+}
+.cls-5 {
+  fill: #191919;
+}
+.cls-7 {
+  fill: #f9e9de;
+}
+.cls-8 {
+  fill: #537082;
+}

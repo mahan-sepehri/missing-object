@@ -1,6 +1,9 @@
 import React, { useContext, useMemo, useState, useEffect } from "react";
 import Person from "./person";
 import Student from "./Student";
+import MobileMan from "./MobileMan";
+import BusinessWoman from "./BusinessWoman";
+import WalkingGuy from "./WalkingGuy";
 import DifficultyContext from "../context/difficultyContext";
 import LivesContext from "../context/livesContext";
 import "./ObjectContainer.css";
@@ -71,44 +74,58 @@ const ObjectContainer = () => {
           />
         );
       },
+      function (i) {
+        return (
+          <MobileMan
+            key={i}
+            objectNum={i}
+            winnerNumber={winnerNumber}
+            style={{
+              top: `${randomize()}%`,
+              left: `${randomize()}%`,
+            }}
+            pantsColor={randomRgbColor()}
+            shirtColor={randomRgbColor()}
+            personId={`person${i}`}
+          />
+        );
+      },
+      function (i) {
+        return (
+          <BusinessWoman
+            key={i}
+            objectNum={i}
+            winnerNumber={winnerNumber}
+            style={{
+              top: `${randomize()}%`,
+              left: `${randomize()}%`,
+            }}
+            pantsColor={randomRgbColor()}
+            shirtColor={randomRgbColor()}
+            personId={`person${i}`}
+          />
+        );
+      },
+      function (i) {
+        return (
+          <WalkingGuy
+            key={i}
+            objectNum={i}
+            winnerNumber={winnerNumber}
+            style={{
+              top: `${randomize()}%`,
+              left: `${randomize()}%`,
+            }}
+            pantsColor={randomRgbColor()}
+            shirtColor={randomRgbColor()}
+            personId={`person${i}`}
+          />
+        );
+      },
     ];
-    // const characterArr = [
-    //   (i) => {
-    //     return (
-    //       <Person
-    //         key={i}
-    //         objectNum={i}
-    //         winnerNumber={winnerNumber}
-    //         style={{
-    //           top: `${randomize()}%`,
-    //           left: `${randomize()}%`,
-    //         }}
-    //         pantsColor={randomRgbColor()}
-    //         shirtColor={randomRgbColor()}
-    //         personId={`person${i}`}
-    //       />
-    //     );
-    //   },
-    //   (i) => {
-    //     return (
-    //       <Student
-    //         key={i}
-    //         objectNum={i}
-    //         winnerNumber={winnerNumber}
-    //         style={{
-    //           top: `${randomize()}%`,
-    //           left: `${randomize()}%`,
-    //         }}
-    //         pantsColor={randomRgbColor()}
-    //         shirtColor={randomRgbColor()}
-    //         personId={`person${i}`}
-    //       />
-    //     );
-    //   },
-    // ];
     const createMissingArr = (difficulty) => {
       for (let i = 0; i < difficulty; i++) {
-        const randomIndex = Math.floor(Math.random() * 2);
+        const randomIndex = Math.floor(Math.random() * characterArr.length);
         missingObjectArr.push(characterArr[randomIndex](i));
       }
     };

@@ -1,11 +1,11 @@
 import { useContext } from "react";
-import SoccerPlayer from "./characterSvgCodes/SoccerPlayer";
+import WalkingGuySvg from "./characterSvgCodes/WalkingGuySvg";
 import ShowResultContext from "../context/showResult";
 import LivesContext from "../context/livesContext";
 
 import "./person.css";
 
-const Person = (props) => {
+const WalkingGuy = (props) => {
   const { setShowResult } = useContext(ShowResultContext);
   const { lives, setLives } = useContext(LivesContext);
 
@@ -13,18 +13,17 @@ const Person = (props) => {
     if (props.objectNum === props.winnerNumber) {
       setShowResult(true);
     } else {
-      console.log("not this one");
       setLives(lives - 1);
     }
   };
 
   return (
     <div
-      className="svg-image soccer-player"
+      className="svg-image walking-guy"
       style={props.style}
       onClick={checkWinner}
     >
-      <SoccerPlayer
+      <WalkingGuySvg
         id={props.personId}
         personClassPants={`person${props.personId}-pants`}
         personClassShirt={`person${props.personId}-shirt`}
@@ -34,4 +33,4 @@ const Person = (props) => {
   );
 };
 
-export default Person;
+export default WalkingGuy;

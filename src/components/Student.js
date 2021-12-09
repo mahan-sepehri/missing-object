@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import StudentSVG from "./StudentSVG";
+import StudentSVG from "./characterSvgCodes/StudentSVG";
 import ShowResultContext from "../context/showResult";
 import LivesContext from "../context/livesContext";
 
@@ -18,12 +18,16 @@ const Student = (props) => {
   };
 
   return (
-    <div className="svg-image" style={props.style} onClick={checkWinner}>
+    <div
+      className="svg-image student"
+      style={props.style}
+      onClick={checkWinner}
+    >
       <StudentSVG
         id={props.personId}
         personClassPants={`person${props.personId}-pants`}
         personClassShirt={`person${props.personId}-shirt`}
-        fillColors={`.cls-1{fill:#e8dbce;}.person${props.personId}-pants{fill:${props.pantsColor};}.person${props.personId}-shirt{fill:${props.shirtColor};}.cls-4{fill:#736357;}.cls-5{fill:#f0e5d4;}.cls-6{fill:#333;}.cls-7{fill:#f0f0f0;}`}
+        fillColors={`.person${props.personId}-pants{fill:${props.pantsColor};}.person${props.personId}-shirt{fill:${props.shirtColor};}`}
       />
     </div>
   );

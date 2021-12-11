@@ -4,14 +4,21 @@ import ShowResultContext from "../context/showResult";
 import LivesContext from "../context/livesContext";
 
 import "./person.css";
+import DifficultyContext from "../context/difficultyContext";
 
 const Kenny = (props) => {
   const { setShowResult } = useContext(ShowResultContext);
   const { lives, setLives, setShowWrong } = useContext(LivesContext);
+  const { setDifficulty } = useContext(DifficultyContext);
 
   const checkWinner = () => {
     if (props.objectNum === props.winnerNumber) {
       setShowResult(true);
+
+      setDifficulty((prev) => {
+        console.log(prev);
+        return prev + 1;
+      });
     } else {
       setShowWrong(true);
       setLives(lives - 1);

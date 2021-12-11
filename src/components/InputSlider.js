@@ -4,8 +4,9 @@ import Spinner from "./Spinner";
 import "./InputSlider.css";
 
 const InputSlider = (props) => {
-  const { setDifficulty } = useContext(DifficultyContext);
-  const [difficultySliderValue, setDifficultySliderValue] = useState(50);
+  const { difficulty, setDifficulty } = useContext(DifficultyContext);
+  const [difficultySliderValue, setDifficultySliderValue] =
+    useState(difficulty);
   const [isLoading, setIsLoading] = useState(false);
   const difficultyChangeHandler = () => {
     setDifficulty(difficultySliderValue);

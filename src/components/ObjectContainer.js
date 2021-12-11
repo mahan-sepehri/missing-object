@@ -22,6 +22,7 @@ const ObjectContainer = () => {
   const { difficulty } = useContext(DifficultyContext);
   const [missingObjArr, setMissingObjArr] = useState([]);
   const { lives } = useContext(LivesContext);
+  const [livesArr, setLivesArr] = useState([]);
   const { setHasLost, setShowResult } = useContext(ShowResultContext);
 
   const winnerNumber = useMemo(
@@ -207,12 +208,20 @@ const ObjectContainer = () => {
 
   const winner = missingObjArr[winnerNumber];
 
+  useEffect(() => {
+    const livesArray = [];
+    for (let i = 0; i < lives; i++) {
+      livesArray.push("♥️");
+    }
+    setLivesArr(livesArray);
+  }, [lives]);
+
   return (
     <>
       {missingObjArr.length !== 0 ? (
         <div className="bottom-box">
           <div className="lives-container">
-            <span style={{ fontSize: "40px" }}>♥️ &times; {lives}</span>
+            <span style={{ fontSize: "40px" }}>{livesArr}</span>
           </div>
           <div className="winner-container">
             <h2>Find This:</h2>

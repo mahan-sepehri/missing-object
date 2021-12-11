@@ -17,8 +17,10 @@ const App = () => {
       {!gameIsStarted ? (
         <StartModal setGameIsStarted={setGameIsStarted} />
       ) : null}
-      {showResult && hasLost && <ResultModal msg="You Lost" />}
-      {showResult && !hasLost && <ResultModal msg="You Won" />}
+      {showResult && hasLost && (
+        <ResultModal msg="You Lost" setGameIsStarted={setGameIsStarted} />
+      )}
+      {showResult && !hasLost && <ResultModal msg="Well Done" />}
 
       {gameIsStarted && !showResult ? <ObjectContainer /> : null}
       {showWrong && <div className="wrong-overlay"></div>}
